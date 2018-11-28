@@ -8,8 +8,8 @@
 
 using namespace std;
 
-void modifyPerson(Person person) {
-	person.SetName("NewName");
+void modifyPerson(Person *person) {
+	person->SetName("NewName");
 }
 
 void passByValue(int num) {
@@ -19,7 +19,7 @@ void passByValue(int num) {
 }
 
 void passByRef(int &num) {
-	cout << "function PassByValue()" << endl;
+	cout << "function PassByRef()" << endl;
 	num = 50;
 	cout << "num is now: " << num << endl;
 }
@@ -86,7 +86,7 @@ int main()
 
 	Person *person = new Person("BlaBla", 29, 1.80, 85);
 	cout << "Person name is: " << person->GetName() << endl;
-	modifyPerson(*person);
+	modifyPerson(person);
 	cout << "Person name is now: " << person->GetName() << endl;
 }
 
